@@ -3,16 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumino - Widgets</title>
+<title>Home - Dashboard</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
 
+	
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
 <![endif]-->
+
 
 </head>
 
@@ -24,14 +26,11 @@
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+				<li id="clockbox"></li>
 			</ol>
 		</div><!--/.row-->
 		
-		<div class="row">
-			<div class="col-lg-12">
-				<!--h1 class="page-header">Widgets</h1-->
-			</div>
-		</div><!--/.row-->
+	
 									
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-3">
@@ -86,11 +85,40 @@
 					</div>
 				</div>
 			</div>
+		</div><!--/.row-->	
+		
+		
+		<div class="row">
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">Energie Aufteilung</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas class="main-chart" id="pie-chart" ></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">Verbrauch</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div><!--/.row-->
+		
+		
 		
 		<div class="row">
 
 			<div class="col-md-4">
+				
+				
 			
 				<div class="panel panel-red">
 					<div class="panel-heading dark-overlay"><span class="glyphicon glyphicon-calendar"></span>Calendar</div>
@@ -98,6 +126,9 @@
 						<div id="calendar"></div>
 					</div>
 				</div>
+			</div>
+			
+			<div class="col-md-4">
 				
 				<div class="panel panel-blue">
 					<div class="panel-heading dark-overlay"><span class="glyphicon glyphicon-check"></span>To-do List</div>
@@ -194,6 +225,27 @@
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script>
+	tday=new Array("Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag");
+	tmonth=new Array("Januar","Februar","M&auml;rz","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember");
+	
+	function GetClock(){
+	var d=new Date();
+	var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear(),nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+	
+	
+	if(nyear<1000) nyear+=1900;
+	if(nmin<=9) nmin="0"+nmin;
+	if(nsec<=9) nsec="0"+nsec;
+	
+	document.getElementById('clockbox').innerHTML=""+tday[nday]+" "+ ndate + ". " +tmonth[nmonth]+" "+nyear+" "+nhour+":"+nmin+":"+nsec;
+	}
+	
+	
+	GetClock();
+	setInterval(GetClock,1000);
+	</script>
+	
+	<script>
 		$('#calendar').datepicker({
 		});
 
@@ -210,7 +262,12 @@
 		$(window).on('resize', function () {
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
-	</script>	
+	</script>
+	
+	
+	
+	
+	
 </body>
 
 </html>

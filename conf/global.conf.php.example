@@ -1,0 +1,10 @@
+<?php
+
+#Address Information for local garbage collection
+$street = "Mystreet";
+$streetNumber = 42;
+$city = "Bremen";
+
+
+
+?>

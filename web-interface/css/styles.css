@@ -865,3 +865,19 @@ h1.page-header {
 .fixed-table-pagination .pagination-detail {
 	margin-top: 20px;
 }
+
+.blink {
+    animation-duration: 1s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

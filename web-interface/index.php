@@ -27,6 +27,30 @@
 				<li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span></a></li>
 			</ol>
+			
+			<?php
+			// logic for showing next garbage collection
+			require_once("../lib/garbage-collection.php");
+			
+			$next_date_full = garbage_get_next_date();
+			$next_date = substr($next_date_full, 0, 2);
+			$days_to_collection = $next_date - date('d');
+			
+			if ( $days_to_collection <= 2 ){
+			
+			if (strpos(" ".$next_date_full, "Papier")){
+				$icons = '<span style="color: #2E9AFE" class="glyphicon glyphicon-trash"><span style="color: #FFBF00" class="glyphicon glyphicon-trash">';
+			}else{
+				$icons = '<span style="color: #3ADF00" class="glyphicon glyphicon-trash"><span style="color: black" class="glyphicon glyphicon-trash">';
+			}
+			
+			echo '<div id="garbage-collection" class="panel-heading" style="top: 0px; right: 310px; position: absolute; font-weight: 800">Am '.$next_date.'. '.$icons.'</div>';
+			
+			}
+			
+			?>
+			
+			
 			<div id="clockbox" class="panel-heading" style="top: 0px; right: 50%; left: 50%;position: absolute; font-weight: 800"></div>
 			<div id="datebox" class="panel-heading" style="top: 0px; right: 0px; position: absolute"></div>
 		</div><!--/.row-->

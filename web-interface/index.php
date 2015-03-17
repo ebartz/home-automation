@@ -36,6 +36,7 @@
 			$next_date = substr($next_date_full, 0, 2);
 			$days_to_collection = $next_date - date('d');
 			
+			//show info only if we have under 2 days left
 			if ( $days_to_collection <= 2 ){
 			
 			if (strpos(" ".$next_date_full, "Papier")){
@@ -44,6 +45,7 @@
 				$icons = '<span style="color: #3ADF00" class="glyphicon glyphicon-trash"><span style="color: black" class="glyphicon glyphicon-trash">';
 			}
 			
+			//echo the actual div container
 			echo '<div id="garbage-collection" class="panel-heading" style="top: 0px; right: 310px; position: absolute; font-weight: 800">Am '.$next_date.'. '.$icons.'</div>';
 			
 			}

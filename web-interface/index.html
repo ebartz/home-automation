@@ -26,8 +26,9 @@
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span></a></li>
-				<li id="clockbox"></li>
 			</ol>
+			<div id="clockbox" class="panel-heading" style="top: 0px; right: 50%; left: 50%;position: absolute; font-weight: 800"></div>
+			<div id="datebox" class="panel-heading" style="top: 0px; right: 0px; position: absolute"></div>
 		</div><!--/.row-->
 		
 	
@@ -237,7 +238,8 @@
 	if(nmin<=9) nmin="0"+nmin;
 	if(nsec<=9) nsec="0"+nsec;
 	
-	document.getElementById('clockbox').innerHTML=""+tday[nday]+" "+ ndate + ". " +tmonth[nmonth]+" "+nyear+" "+nhour+":"+nmin+":"+nsec;
+	document.getElementById('clockbox').innerHTML=""+nhour+":"+nmin+":"+nsec;
+	document.getElementById('datebox').innerHTML=""+tday[nday]+" "+ ndate + ". " +tmonth[nmonth]+" "+nyear;
 	}
 	
 	

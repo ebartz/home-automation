@@ -867,17 +867,16 @@ h1.page-header {
 }
 
 .blink {
-    animation-duration: 1s;
-    animation-name: blink;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-}
-@keyframes blink {
-    from {
-        opacity: 1;
+      animation: blink 1s steps(5, start) infinite;
+      -webkit-animation: blink 1s steps(5, start) infinite;
     }
-    to {
-        opacity: 0;
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
     }
-}
+    @-webkit-keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }

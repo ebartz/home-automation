@@ -64,7 +64,7 @@
 				<div class="panel panel-blue panel-widget ">
 					<div class="row no-padding">
 						<div class="col-sm-3 col-lg-5 widget-left">
-							<em class="glyphicon glyphicon-shopping-cart glyphicon-l"></em>
+							<em class="glyphicon glyphicon-euro glyphicon-l"></em>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large">120</div>
@@ -103,11 +103,11 @@
 				<div class="panel panel-red panel-widget">
 					<div class="row no-padding">
 						<div class="col-sm-3 col-lg-5 widget-left">
-							<em class="glyphicon glyphicon-stats glyphicon-l"></em>
+							<em class="glyphicon glyphicon-euro glyphicon-l"></em>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">25.2k</div>
-							<div class="text-muted">Visitors</div>
+							<div class="large">22&euro;</div>
+							<div class="text-muted">Energieverbrauch</div>
 						</div>
 					</div>
 				</div>

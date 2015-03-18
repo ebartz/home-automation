@@ -23,10 +23,40 @@
 	<div class="col-sm-12 main">		
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li><a href="stat.php"><span class="glyphicon glyphicon-stats"></span></a></li>
+				<li><a href="info.php"><span class="glyphicon glyphicon-info-sign"></span></a></li>
 			</ol>
+			
+			<?php
+			// logic for showing next garbage collection
+			require_once("../lib/garbage-collection.php");
+			
+			$next_date_full = garbage_get_next_date();
+			$next_date = substr($next_date_full, 0, 2);
+			$days_to_collection = $next_date - date('d');
+			
+			//show info only if we have under 3 days left
+			if ( $days_to_collection <= 3 ){
+			
+			if ($days_to_collection == 0){
+				$blink = "blink";
+			}
+			
+			if (strpos(" ".$next_date_full, "Papier")){
+				$icons = '<span style="color: #2E9AFE" class="glyphicon glyphicon-trash '.$blink.'"></span><span style="color: #FFBF00" class="glyphicon glyphicon-trash '.$blink.'"></span>';
+			}else{
+				$icons = '<span style="color: #61380B" class="glyphicon glyphicon-trash '.$blink.'"></span><span style="color: black" class="glyphicon glyphicon-trash '.$blink.'"></span>';
+			}
+			
+			//echo the actual div container
+			echo '<div id="garbage-collection blink" class="panel-heading" style="top: 0px; right: 310px; position: absolute; font-weight: 800">Am '.$next_date.'. '.$icons.'</div>';
+			
+			}
+			
+			?>
+			
+			
 			<div id="clockbox" class="panel-heading" style="top: 0px; right: 50%; left: 50%;position: absolute; font-weight: 800"></div>
 			<div id="datebox" class="panel-heading" style="top: 0px; right: 0px; position: absolute"></div>
 		</div><!--/.row-->
@@ -38,7 +68,7 @@
 				<div class="panel panel-blue panel-widget ">
 					<div class="row no-padding">
 						<div class="col-sm-3 col-lg-5 widget-left">
-							<em class="glyphicon glyphicon-shopping-cart glyphicon-l"></em>
+							<em class="glyphicon glyphicon-euro glyphicon-l"></em>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large">120</div>
@@ -77,11 +107,11 @@
 				<div class="panel panel-red panel-widget">
 					<div class="row no-padding">
 						<div class="col-sm-3 col-lg-5 widget-left">
-							<em class="glyphicon glyphicon-stats glyphicon-l"></em>
+							<em class="glyphicon glyphicon-euro glyphicon-l"></em>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">25.2k</div>
-							<div class="text-muted">Visitors</div>
+							<div class="large">22&euro;</div>
+							<div class="text-muted">Energieverbrauch</div>
 						</div>
 					</div>
 				</div>

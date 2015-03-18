@@ -23,9 +23,9 @@
 	<div class="col-sm-12 main">		
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li><a href="stat.php"><span class="glyphicon glyphicon-stats"></span></a></li>
+				<li><a href="info.php"><span class="glyphicon glyphicon-info-sign"></span></a></li>
 			</ol>
 			
 			<?php

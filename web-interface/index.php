@@ -8,6 +8,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	
 <!--[if lt IE 9]>
@@ -20,7 +21,8 @@
 
 <body>
 		
-	<div class="col-sm-12 main">		
+
+	<div class="col-sm-12 main">
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -61,7 +63,60 @@
 			<div id="datebox" class="panel-heading" style="top: 0px; right: 0px; position: absolute"></div>
 		</div><!--/.row-->
 		
-	
+		<div class="row">
+
+		<div class="col-md-4">
+                                <div class="panel panel-default">
+                                        <div class="panel-body tabs">
+
+                                                <ul class="nav nav-pills">
+                                                        <li class="active"><a href="#pilltab1" data-toggle="tab">Wohnzimmer</a></li>
+                                                        <li><a href="#pilltab2" data-toggle="tab">Schlafzimmer</a></li>
+                                                        <li><a href="#pilltab3" data-toggle="tab">Arbeitszimmer</a></li>
+                                                </ul>
+
+						<?php #Todo Build Loop around this which fetches all switches and puts them into a Tab for every room ?>
+						
+                                                <div class="tab-content">
+                                                        <div class="tab-pane fade in active" id="tab1">
+                                                                <h4>
+                                                                <table border=0 >
+<tr>
+<td style='width: 25px'><i class="fa fa-power-off" id="12212" onclick="cC(this.id);" ></i></td><td>Wohnzimmer TV</td>
+</tr>
+<tr>
+<td><i class="fa fa-power-off" id="01342" onclick="cC(this.id);" ></i></td><td>Wohnzimmer Steckdose</td>
+</tr>
+<tr>
+<td><i class="fa fa-power-off" id="01311" onclick="cC(this.id);" ></i></td><td>Schlafzimmer Nachtschrank</td>
+</tr>
+<tr>
+<td><i class="fa fa-power-off" id="01343" onclick="cC(this.id);" ></i></td><td>Lichterketten</td>
+</tr>
+<tr>
+<td><i class="fa fa-power-off" id="01313" onclick="cC(this.id);" ></i></td><td>Kühlung Server</td>
+</tr>
+<tr>
+<td><i class="fa fa-power-off" id="01341" onclick="cC(this.id);" ></i></td><td>Juniper Testsetup</td>
+</tr>
+<tr>
+<td><i class="fa fa-power-off" id="01312" onclick="cC(this.id);" ></i></td><td>Licht Kammer</td>
+</tr>
+</table></h4>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="tab2">
+                                                                <h4>Hier gibts nichts zu sehen!</h4>
+                                                                
+                                                        </div>
+                                                        <div class="tab-pane fade" id="tab3">
+                                                                <h4>Hier gibts nichts zu sehen!</h4>
+                                                                
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div><!--/.panel-->
+
+		</div>	
 									
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-3">

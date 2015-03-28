@@ -1,0 +1,23 @@
+<?php
+
+$switches = array( array( id 	      => "12341",
+			  On  	      => "123456",
+                          Off 	      => "654321",
+			  room 	      => "Schlafzimmer",
+			  description => "Wecker",
+                    ),
+                   array( id          => "12342",
+			  On          => "234561",
+                          Off         => "543216",
+			  room        => "Wohnzimmer",
+			  description => "Leinwand",
+                    ),
+                   array( id 	      => "12343",
+			  On          => "345612",
+                          Off         => "432165",
+			  room 	      => "Wohnzimmer",
+			  description => "Beamer",
+                    ),
+        );
+
+?>

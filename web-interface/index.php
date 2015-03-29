@@ -77,25 +77,44 @@
 						<div class="panel-body tabs">
 						
 							<ul class="nav nav-pills">';
+							#Set counter for elements in foreach loop
+							$counter = 0;
+							#generate list rooms for the tab panel
 							foreach(switches_get_rooms() as $room){
-								echo '<li><a href="#'.$room.'" data-toggle="tab">'.$room.'</a></li>';
+								#if we are on the first element, show it as active
+								if ($counter == 0){ $active = "active";} else{ $active = "";}
+								echo '<li class="'.$active.'" ><a href="#'.$room.'" data-toggle="tab">'.$room.'</a></li>';
+							$counter++;
 							}
 						
-						#ToDo: Add automatic creation of tab content by for every room
-							
-							echo '</ul>
-	
-													
-							<div class="tab-content">
-								<div class="tab-pane fade in active" id="tab1">
-									<h4>Hier gibts nichts zu sehen!</h4>
-								</div>
-								<div class="tab-pane fade" id="tab2">
-									<h4>Hier gibts nichts zu sehen!</h4>
-								</div>
-								<div class="tab-pane fade" id="tab3">
-									<h4>Hier gibts nichts zu sehen!</h4>
-								</div>
+			echo '			</ul>
+								
+							<div class="tab-content">';
+							#Set counter for elements in foreach loop
+							$counter = 0;
+							#generate the tab content by the array of switches which have been set in the configuration
+							foreach (switches_get_rooms() as $room) {
+								#if we are on the first element, show it as active
+								if ($counter == 0){ $active = "active";} else{ $active = "";}
+								echo '<div class="tab-pane fade in '.$active.'" id="'.$room.'">
+									<h4>
+										<table border=0 >';
+
+									foreach (switches_get_switches_by_room($room) as $switch) {
+										echo '
+												<tr>
+												<td style="width: 25px"><i class="fa fa-power-off" id="'.$switch["id"].'" onclick="cC(this.id);" ></i></td><td>'.$switch["description"].'</td>
+												</tr>';
+									}
+
+								echo '</table></h4>
+								</div>';
+							$counter++;
+							}
+								
+
+			echo '
+
 							</div>
 						</div>
 					</div><!--/.panel-->
@@ -340,7 +359,53 @@
 	</script>
 	
 	
-	
+
+	<script>
+
+
+
+	var a = [<?php
+		foreach (switches_get_switches() as $switch) {
+		echo '"'.$switch["id"].'", ';
+		}
+	?>];
+	a.forEach(function(entry) {
+
+	    $.get("status.php?switch="+entry, function(data){
+	    if (data == 0){
+	            document.getElementById(entry).style.color = "red";
+	    return false;
+	    }
+	    if (data == 1){
+	            document.getElementById(entry).style.color = "green";
+	    return false;
+	    }
+	    });
+
+	});
+
+
+
+	function cC(id) {
+
+	//$.get("switch.php?secret=0815&id="+id);
+
+	$.get("switch.php?id="+id, function(data){
+	if (data == 0){
+	        document.getElementById(id).style.color = "red";
+	return false;
+	}
+	if (data == 1){
+	document.getElementById(id).style.color = "green";
+	return false;
+	}
+
+	});
+
+
+
+	}
+	</script>
 	
 	
 </body>

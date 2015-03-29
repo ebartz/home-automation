@@ -38,7 +38,7 @@ Thumbs.db
 
 # Config Files #
 ################
-switches.conf.php
-wunderlist.conf.php
-gpio.conf.php
-global.conf.php
+conf/switches.conf.php
+conf/wunderlist.conf.php
+conf/gpio.conf.php
+conf/global.conf.php

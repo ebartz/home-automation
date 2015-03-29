@@ -8,6 +8,4 @@ $conf['street'] = "S%FCntelstra%DFe";
 $conf['streetNumber'] = 5;
 $conf['city'] = "Bremen";
 
-
-
 ?>

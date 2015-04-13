@@ -35,6 +35,20 @@ function switches_get_switches_by_room($room_name){
         return $result_switches;
 }
 
+function switches_get_switches_by_id($switch_id){
+	#function will return an array of witch the data of the given switch id
+
+	require("../conf/switches.conf.php");
+
+        foreach($switches as $switch){
+                if ($switch["id"] == $switch_id){
+                        $result_switch = $switch;
+                }
+        }
+
+        return $result_switch;
+}
+
 function switches_get_switches(){
 	#function returns all available switches
 
